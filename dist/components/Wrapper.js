@@ -14,6 +14,7 @@ class Wrapper extends React.Component {
                 {id: 3, name: 'JavaScript2'},
                 {id: 4, name: 'JavaScript3'},
                 {id: 5, name: 'JavaScript4'},
+                {id: 6, name: 'JavaScript5'},
             ],
         };
     }

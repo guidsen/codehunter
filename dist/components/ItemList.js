@@ -7,14 +7,10 @@ class ItemList extends React.Component {
     }
 
     render() {
-        const itemNodes = this.props.categories.map(item => {
-            return (
-                <Item key={item.id} categoryName={item.name}/>
-            );
-        });
-
         return (
-            <div id="test">{itemNodes}</div>
+            <div id="test">
+                {this.props.categories.map(item => <Item key={item.id} categoryName={item.name}/>)}
+            </div>
         );
     }
 }
