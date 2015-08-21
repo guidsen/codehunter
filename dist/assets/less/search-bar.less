@@ -1,0 +1,35 @@
+.search-bar {
+  background-color: @green-base;
+  height: 80px;
+  padding: 20px 0px;
+
+  .search-label {
+    position: absolute;
+    font-size: 20px;
+    padding: 5px 0px;
+    right: 40px;
+    color: #C8C7C7;
+  }
+
+  .search-box > .form-control {
+    background: @white-base;
+    border: none;
+    height: 40px;
+    margin-left: -15px;
+    padding-right: 40px;
+
+    &:focus {
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+      box-shadow: none;
+    }
+  }
+
+  .actions {
+    .btn-default {
+      font-weight: 600;
+      height: 40px;
+      text-transform: uppercase;
+    }
+  }
+}
