@@ -100,7 +100,7 @@ var babelifyTransform = babelify.configure({
 
 // Build
 gulp.task('less', plumb.bind(null, './dist/assets/less/app.less', [less], './build/css'));
-gulp.task('scripts', buildApp.bind(null, ['./dist/components/Wrapper.js'], [babelifyTransform, brfs], 'app.js', './build/js'));
+gulp.task('scripts', buildApp.bind(null, ['./dist/containers/Root.js'], [babelifyTransform, brfs], 'app.js', './build/js'));
 
 gulp.task('build-assets', ['less']);
 gulp.task('build', ['build-assets', 'scripts']);

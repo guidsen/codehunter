@@ -1,39 +1,46 @@
 import React from 'react';
+import { createStore } from 'redux';
+import { Provider, connect }  from 'react-redux';
 import TopBar from './topbar';
 import SearchBar from './searchbar';
 import ItemList from './itemlist';
+import searchBox from '../reducers/searchbox';
 
 class Wrapper extends React.Component {
-  constructor() {
-    super();
-
-    this.state = {
-      categories: [
-        {id: 1, name: 'PHP'},
-        {id: 2, name: 'JavaScript'},
-        {id: 3, name: 'JavaScript2'},
-        {id: 4, name: 'JavaScript3'},
-        {id: 5, name: 'JavaScript4'},
-        {id: 6, name: 'JavaScript5'},
-      ],
-    };
+  _handleSearchBarChange(value) {
+    //console.info('change input value to: %s', value);
+    this.props.dispatch({
+      type: 'UPDATE_FILTER',
+      filter: {
+        name: value,
+      },
+    })
   }
 
   render() {
+    console.info('Rendered Wrapper')
+
     return (
       <div id="wrapper">
         <section className="top-bar">
           <TopBar />
         </section>
         <section className="search-bar">
-          <SearchBar />
+          <SearchBar onChange={this._handleSearchBarChange.bind(this)}/>
         </section>
         <section className="category-item-list">
-          <ItemList categories={this.state.categories}/>
+          <ItemList categories={this.props.categories}/>
         </section>
       </div>
     );
   }
 }
 
-React.render(<Wrapper />, document.getElementById('codehunter body'));
+function select(state) {
+  return {
+    categories: state.categories,
+  }
+}
+
+export default connect(select)(Wrapper);
+
