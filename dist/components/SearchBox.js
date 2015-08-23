@@ -3,11 +3,7 @@ import React from 'react';
 class SearchBox extends React.Component {
   static propTypes = {
     inputText: React.PropTypes.string,
-    handleInput: React.PropTypes.func
-  }
-
-  _updateInput(e) {
-    this.props.handleInput(e.target.value);
+    handleInput: React.PropTypes.func,
   }
 
   render() {
@@ -23,6 +19,10 @@ class SearchBox extends React.Component {
           />
       </div>
     );
+  }
+
+  _updateInput(e) {
+    this.props.handleInput(e.target.value);
   }
 }
 

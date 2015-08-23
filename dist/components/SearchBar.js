@@ -3,7 +3,7 @@ import SearchBox from './searchbox';
 
 class SearchBar extends React.Component {
   static propTypes = {
-    onChange: React.PropTypes.func
+    onChange: React.PropTypes.func,
   }
 
   render() {
